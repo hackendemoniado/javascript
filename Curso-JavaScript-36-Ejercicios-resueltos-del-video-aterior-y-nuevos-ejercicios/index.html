@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Prácticos 1 de 10</title>
+</head>
+<body>
+    <h1>Ejercios de Programación en JavaScript</h1>
+    <script>
+
+    /*
+    5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+    */
+    const invertirCadena = (cadena = "") =>
+    (!cadena)
+        ?console.warn("No ingresaste una cadena de texto")
+        :console.info(cadena.split("").reverse().join(""));
+    invertirCadena("Hola Mundo")
+    invertirCadena("JavaScript es un lenguaje de programación increíble")
+    invertirCadena()
+
+    console.clear()
+
+/*6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+*/
+
+    const cuentaPalabras = (cadena = "", buscar = "") =>{
+     if (!cadena) return console.warn("No ingresaste nunguna cadena")
+     if(!buscar) return console.warn("No ingresaste ningún separador")
+    
+     let i = 0
+     contador = 0
+     while (i !== -1) {
+         i = cadena.indexOf(buscar,i)
+         if(i !== -1){
+             i++
+             contador++
+         }
+     }
+    return console.info(`El String "${buscar}" aparece en total: ${contador} veces.`)
+    }
+
+
+    cuentaPalabras("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis dolorem repellat officiis natus aliquid illo quasi cupiditate perspiciatis provident! Ratione, laborum magnam magni amet exercitationem explicabo quibusdam voluptates accusantium?", "lorem")
+    cuentaPalabras()
+    cuentaPalabras("", "mundo")
+    cuentaPalabras("Hola mundo")
+    cuentaPalabras("hola mundo adios mundo", "mundo")
+
+    console.clear()
+    
+/*
+7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+*/
+    const palindromo = (cadena = "")=>{
+        if(!cadena) return console.warn("No ingresaste nunguna cadena")
+
+        cadena = cadena.toLocaleLowerCase()
+        let alReves = cadena.split("").reverse().join("")
+
+        return (cadena === alReves)
+            ?console.log(`La cadena "${cadena}" SI es un palindromo, cadena al reves: ${alReves}`)
+            :console.log(`La cadena "${cadena}" NO es un palindromo, cadena al reves: ${alReves}`)
+    }
+
+    palindromo()
+    palindromo("hola Mundo")
+    palindromo("Salas")
+
+    console.clear()
+
+/*
+8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+*/  
+
+    const eliminaCaracteres = (cadena = "", expRegular = "") =>
+    (!cadena)
+        ?console.warn("No ingresaste nunguna cadena")
+        :(!expRegular)
+            ?console.warn("No ingresaste nunguna expresión regular")
+            :console.info(cadena.replace(new RegExp(expRegular, "ig"),""))
+
+    eliminaCaracteres()
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5")
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+    eliminaCaracteres("Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio consequuntur impedit voluptates doloremque consectetur voluptate quis excepturi ad assumenda, natus odit error, est atque deleniti voluptatum doloribus minima velit amet!", "[a-z]")
+    
+/*
+8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+*/  
+
+const eliminaCaracteres = (cadena = "", expRegular = "") =>
+    (!cadena)
+        ?console.warn("No ingresaste nunguna cadena")
+        :(!expRegular)
+            ?console.warn("No ingresaste nunguna expresión regular")
+            :console.info(cadena.replace(new RegExp(expRegular, "ig"),""))
+
+    eliminaCaracteres()
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5")
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+    eliminaCaracteres("Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio consequuntur impedit voluptates doloremque consectetur voluptate quis excepturi ad assumenda, natus odit error, est atque deleniti voluptatum doloribus minima velit amet!", "[a-z]")
+    console.clear()
+    
+    /*
+    9) Programa una función que obtenga un numero aleatorio entre 501 y 600.*/
+    const aleatorios = () => console.log(Math.floor(Math.random() * (601 - 501)) + 501)
+    aleatorios()
+    console.clear()
+    /*
+10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+*/
+    const capicua = (numero = undefined)=>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        let alReves = parseInt((numero+"").split("").reverse().join(""))
+        if(alReves === numero)return console.log(true)
+        else return console.log(false)
+    }
+
+    capicua()
+    capicua(2000)
+    capicua(2002)
+    console.clear()
+/*
+11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+    */
+    const factorial = (numero = undefined) =>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        let total = 1
+        for (let i = 1; i <= numero; i++) total *= i
+
+        return console.log(total)
+    }
+
+    factorial()
+    factorial(5)
+    </script>
+    
+</body>
+</html>

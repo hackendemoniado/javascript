@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Prácticos 1 de 10</title>
+</head>
+<body>
+    <h1>Ejercios de Programación en JavaScript</h1>
+    <script>
+        /*function contarCaracteres(cadena = ""){
+            if(!cadena){
+                console.warn("No ingresaste ninguna cadena")
+            }else{
+                console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`)
+            }
+        }*/
+        //Ejercicio 1
+    const contarCaracteres  = (cadena = "") =>
+        (!cadena)
+            ?console.warn("No ingresaste ninguna cadena")
+            :console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`)
+
+    contarCaracteres("")
+    contarCaracteres("Hola Mundo")
+
+    console.clear()
+
+
+    //Ejercicio 2
+    const recortarTexto = (cadena = "",longitud = undefined) =>
+        (!cadena)
+            ?console.warn("No ingresaste ninguna cadena")
+            :(longitud === undefined)
+                ?console.warn("No ingresaste la longitud para recortar el texto")
+                :console.info(cadena.slice(0,longitud))
+
+    recortarTexto("Hola Mundo", 4)
+    recortarTexto()
+    recortarTexto("Hola Hola")
+    recortarTexto("", 5)
+
+    console.clear()
+
+    //Ejercicio 3
+    const cadenaAAreglo = (cadena = "", separador = undefined) =>
+        (!cadena)
+            ?console.warn("No ingresaste ninguna cadena")
+            :(separador === undefined)
+                ?console.warn("No ingresaste el separador")
+                :console.info(cadena.split(separador))
+
+    cadenaAAreglo("Hola que tal", ' ')
+    cadenaAAreglo("ene,feb,mar", ",")
+    cadenaAAreglo()
+    cadenaAAreglo("Hola Mundo")
+    cadenaAAreglo("", "-")
+
+    console.clear()
+
+    //Ejercicio 4
+    const repetirTexto = (texto = "", veces = undefined) =>{
+        if(!texto) return console.warn("No ingresaste ninguna cadena.")
+        if(veces === undefined) return console.warn("No ingresaste el separador.")
+        if(veces === 0) return console.error("El número de veces no puede ser 0.")
+        if(Math.sign(veces) === -1) return console.error("El número de veces no puede ser negativo.")
+        for (let i = 1; i <= veces; i++) console.info(`${texto}, ${i}`)
+    }
+
+    repetirTexto("Hola Mundo", 3)
+    repetirTexto("Hola Mundo", 0)
+    repetirTexto("Hola Mundo", -20)
+    repetirTexto("", 20)
+    repetirTexto("Hola Mundo")
+
+
+    console.clear()
+
+    /*
+    5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+    */
+    const invertirCadena = (cadena = "") =>{
+        if(!cadena) return console.warn("No ingresaste nunguna cadena")
+        if(typeof(cadena) === 'number')return console.error("No ingreses numeros")
+        let resultado = ""
+        for (let i = cadena.length; i >= 0; i--) {
+            //console.log(cadena.charAt(i))
+            resultado += cadena.charAt(i)
+        }
+        console.log(`String original es "${cadena}", si lo invertimos queda: ${resultado}`)
+    }
+    invertirCadena("Hola Mundo")
+    invertirCadena(123)
+    invertirCadena()
+
+    console.clear()
+
+/*6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+*/
+
+    const cuentaPalabras = (cadena = "", buscar = "") =>{
+     if (!cadena) return console.warn("No ingresaste nunguna cadena")
+     if(!buscar) return console.warn("No ingresaste ningún separador")
+    
+     cadena = cadena.split(" ")
+     let cuenta = 0
+    for(let i = 0; i < cadena.length; i++){
+        console.log(cadena[i])
+        if(cadena[i].toLocaleLowerCase().includes(buscar.toLocaleLowerCase())) cuenta++
+        }
+    console.log(`El String "${buscar}" aparece en total: ${cuenta} veces.`)
+    }
+
+
+    cuentaPalabras("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis dolorem repellat officiis natus aliquid illo quasi cupiditate perspiciatis provident! Ratione, laborum magnam magni amet exercitationem explicabo quibusdam voluptates accusantium?", "lorem")
+    cuentaPalabras()
+    cuentaPalabras("Hola hola hola hola hola", "hola")
+
+    console.clear()
+/*
+7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+*/
+    const palindromo = (cadena = "")=>{
+        if(!cadena) return console.warn("No ingresaste nunguna cadena")
+
+        let resultado = ""
+        for (let i = cadena.length; i >= 0; i--) {
+            //console.log(cadena.charAt(i))
+            resultado += cadena.charAt(i)
+        }
+        if(resultado.toLocaleLowerCase() === cadena.toLocaleLowerCase())return console.log(`La cadena "${cadena}" SI es un palindromo`)
+        else console.log(`La cadena "${cadena}" NO es un palindromo`)
+    }
+
+    palindromo("Salas")
+    palindromo()
+    console.clear()
+
+/*
+8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+    */
+
+    const eliminaCaracteres = (cadena = "", expRegular = "") =>{
+        if(!cadena) return console.warn("No ingresaste nunguna cadena")
+        if(!expRegular) return console.warn("No ingresaste nunguna expresión regular")
+        cadena = cadena.split(" ")
+        let resultado = ""
+        for (let i = 0; i < cadena.length; i++) {
+            resultado += " " + cadena[i].replace(expRegular,"")
+            
+        }
+        console.log(resultado)
+    }
+
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+    eliminaCaracteres()
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5")
+    </script>
+    
+</body>
+</html>

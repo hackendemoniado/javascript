@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos JAvaScript</title>
+</head>
+<body>
+    <h1>Fundamentos JavaScript</h1>
+    
+    <script>
+        /*var hola = "Hola Mundo"
+        console.log(hola)
+        //javascript no tenia ambito de bloque
+        if(true){
+            var a = 3
+        }
+        console.log(a)
+
+        let hello = "Hello World"
+        console.log(hello)
+        console.log(window)
+        console.log(window.hola)
+        console.log(window.hello)
+        //Ambito de bloque
+        console.log("*************var***************")
+        var musica = "Rock"
+        console.log("Variable musica antes del bloque: ", musica)
+        //Esto es un bloque - comentario de una linea
+        {
+            var musica = "Pop"
+            console.log("Variable musica dentro del bloque", musica)
+        }
+        console.log("Variable musica despues del bloque", musica)
+
+
+        console.log("*************let***************")
+        let musica2 = "Rock"
+        console.log("Variable musica antes del bloque: ", musica2)
+        //Esto es un bloque - comentario de una linea
+        {
+            let musica2 = "Pop"
+            console.log("Variable musica dentro del bloque", musica2)
+        }
+        console.log("Variable musica despues del bloque", musica2)
+        */
+        /*comentario
+        de
+        varias 
+        lineas*/
+
+
+    /*    
+        let c
+        const PI = 3.1416
+        //const NUEVE //no se pueden definir constantes vacias
+        console.log(PI)
+        //PI = 3.15 // no se puede cambiar el valor de una constante
+        c = "sergio"
+        console.log(c)
+
+        const objeto = {
+            nombre: "Sergio",
+            edad: 32
+        }
+
+        const colores = ['negro', 'blanco', 'azul', 'amarillo']
+
+        console.log(objeto)
+        console.log(colores)
+
+        objeto.correo = "sergiosysforence@gmail.com"
+        colores.push('anaranjado')
+
+        console.log(objeto)
+        console.log(colores)
+*/
+
+        //Cadenas de texto
+     /*   let nombre = "sergio"
+        let apellido = "gonzalez"
+        let saludo = new String("Hola Mundo")
+        let lorem = "    Lorem ,asdoqwj amet        "
+        console.log(nombre,apellido,saludo)
+        console.log(
+            nombre.length,
+            apellido.length,
+            saludo.length,
+            nombre.toLocaleUpperCase(),
+            apellido.toLowerCase(),
+            lorem.includes("sergio"),
+            lorem,
+            lorem.trim(),
+            lorem.split(" "),
+            lorem.split(",")
+        )
+
+*/
+
+ /*   let nombre = "Sergio"
+    let apellido = "Gonzalez"
+
+    //concatenación
+    let saludo = "Hola mi nombre es " + nombre + " " + apellido + "."
+    console.log(saludo)
+
+    //interpolación, meter dentro de una cadena de texto el valor
+    // de un string dinámicamente, pero para eso debemos usar
+    //Template String
+    let saludo2 = `Hola mi nombre es ${nombre} ${apellido}.`
+    console.log(saludo2)
+    
+    //otro ejemplo de Template string, si la siguiente variable la ponemos
+    //tal cual esta la variable ul2 da error de token por usar las comillas
+    //dobles
+    let ul = "<ul><li>Primavero</li><li>Verano</li><li>Otoño</li><li>Invierno</li></ul>"
+    console.log(ul)
+
+    let ul2 = `<ul>
+        <li>Primavero</li>
+        <li>Verano</li>
+        <li>Otoño</li>
+        <li>Invierno</li>
+    </ul>`
+    console.log(ul2)
+    
+    let ul3 = "<ul>"
+       ul3 += "<li>Primavero</li>"
+       ul3 += "<li>Verano</li>"
+        ul3 += "<li>Otoño</li>"
+       ul3 += "<li>Invierno</li>"
+    ul3 += "</ul>"
+    console.log(ul3)
+*/
+
+/*let a = 2
+let b = new Number(1)
+let c = 7.19
+let d = "5.6"
+
+
+console.log(a,b)
+console.log(c.toFixed(1))
+console.log(c.toFixed(5))
+console.log(parseInt(c))
+console.log(parseFloat(c))
+console.log(typeof c, typeof d)
+console.log(a+b)
+console.log(c+d)
+console.log(c+ parseInt(d))
+console.log(c + parseFloat(d))
+console.log(c+ Number.parseInt(d))
+console.log(c + Number.parseFloat(d))
+*/
+
+/*let verdadero = true
+let falso = false
+let v = Boolean(true)
+let f = Boolean(false)
+
+console.log(verdadero, falso, v, f)
+console.log(typeof(verdadero), typeof(falso))
+
+console.log(Boolean(0))
+console.log(Boolean(-7))
+console.log(Boolean(""))
+console.log(Boolean(" "))
+*/
+
+
+//undefined y null representan una variable que no tienen un valor
+//la diferencia es que undefined no a sido inicializada con algo
+// y que el valor esta ausente  
+/*let indefinida
+console.log(indefinida)
+
+//null es un valor especial que indica la ausencia de un valor
+let nulo = null
+console.log(nulo)
+
+//NaN--Not a Number
+let noEsUnNumero = "Hola" * 3.7
+console.log(noEsUnNumero)
+*/
+
+
+
+/*
+//Declaración de función
+function funcionDeclarada(){
+    console.log("Uno")
+    console.log("Dos")
+    console.log("Tres")
+}
+//invocación de función declarativa
+//funcionDeclarada()
+
+function funcionQueDevuelveValor(){
+    console.log("Uno")
+    return 19
+    console.log("Dos")
+    console.log("Tres")
+    return "La función ha retornado una cadena de texto"
+}
+//let valorDeFuncion = funcionQueDevuelveValor()
+
+//console.log(valorDeFuncion)
+
+function saludar(nombre="Desconocido", edad=0){
+    console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años.`)
+}
+
+//saludar("sergio", 32)
+//saludar()
+
+
+//funciones declaradas vs funciones expresadas
+funcionDeclarada2()
+function funcionDeclarada2(){
+    console.log("Esto es una funcion declarada, puede invocarse en cualquier parte de nuestro codigo incluso antes de que la funcion sea declarada")
+}
+
+funcionDeclarada2()
+
+
+//funcionExpresada()
+//función anónima
+const funcionExpresada = function(){
+    console.log("Esto es una función expresada, es decir, una función que se le ha asignado como valor a una varible, si invocamos esta función antes de su definición JS nos dirá.........")
+}
+
+funcionExpresada()
+*/
+
+
+
+
+/*
+
+const a = []
+const b = [1, true, "Hola", ["a","e","i","o","u", [1,2,3]]]
+console.log(a)
+console.log(b)
+console.log(b.length)
+console.log(b[2])
+console.log(b[0])
+console.log(b[3][1])
+console.log(b[3][5][1])
+
+
+const c = Array.of("X","Y","Z",9,8,7)
+console.log(c)
+
+const d = Array(100).fill(false)
+console.log(d)
+
+const e = new Array()
+console.log(e)
+
+const f = new Array(1,2.3,true,false)
+console.log(f)
+
+const colores = ["Rojo", "Verde", "Azul"]
+console.log(colores)
+
+colores.push("Negro")
+console.log(colores)
+
+colores.pop()
+console.log(colores)
+
+colores.forEach(function (el, index){
+    console.log(`<li id="${index}">${el}</li>`)
+})
+
+*/
+
+/*
+const b = {
+
+}
+console.log(b)
+
+const c = new Object()
+console.log(c)
+
+/* Dentro de un objeto a las variables se 
+les van a llamar atributos/propiedades y a
+las funciones se les llaman métodos*/
+/*
+const sergio = {
+    nombre: "Sergio",
+    apellido: "Gonzalez",
+    edad: 32,
+    pasatiempos: ["Correr", "Hacer Ejercicio", "Leer"],
+    soltero: true,
+    contacto: {
+        email: "sergiosysforence@hotmail.com.ar",
+        twitter:"@oqwoiu",
+        movil:"2644555555"
+    },
+    saludar: function() {
+        console.log("Hola :)")
+    },
+    decirMiNombre: function(){
+        console.log(`Hola me llamo ${this.nombre} mi apellido es ${this.apellido} y mis
+        pasa tiempos son: ${this.pasatiempos} y tengo ${this.edad}`)
+    }
+}
+
+console.log(sergio)
+console.log(sergio["nombre"])
+console.log(sergio["apellido"])
+console.log(sergio.pasatiempos[0])
+console.log(sergio.contacto.email)
+sergio.saludar()
+sergio.decirMiNombre()
+
+console.log(Object.keys(sergio))
+console.log(Object.values(sergio))
+console.log(sergio.hasOwnProperty("nombre"))
+console.log(sergio.hasOwnProperty("nacimiento"))
+*/
+
+
+// Operadores
+// Aritméticos +-*/%()
+/*
+let a = 5 + ( 5 - 10 ) * 3
+let modulo = 5 % 2
+
+console.log(a)
+console.log(modulo)
+
+// Relacionales
+// >, <, >=, <=, ==, ===, !=, !==
+console.log( 8 > 9)
+console.log(9 > 8)
+console.log(8 >= 9)
+console.log(9 >= 8)
+console.log(7 <= 7)
+console.log(5 == 5)
+console.log("7" == 7)
+// = 1 igual es una signación
+// == 2 iguales es una comparación
+// === 3 iguales es comparación de tipo de dato y de valor
+console.log("7"===7)
+console.log(0 === false)
+
+// Incremento Decremento
+
+let i = 1
+
+//i = i + 2
+i += 3
+console.log(i)
+let j = 1
+j /=3
+console.log(j)
+let k = 1
+k *=3
+console.log(k)
+
+//operador unario
+
+let h = 2
+h++
+h--
+console.log(h)
+
+let m = 2
+console.log(m++)
+console.log(++m)
+
+
+//operadores lógicos
+// ! not, || or, && and
+
+console.log(!true)
+console.log(!false)
+console.log((9 === 9)||("9" === 9))
+console.log((9 === 9) && ("9" === 9))
+*/
+
+
+
+
+
+// Condicionales
+/*let edad = 19
+if(edad > 17){
+    console.log("Eres mayor de edad")
+}else{
+    console.log("Eres menor de edad")
+}
+
+if(edad >= 18){
+    console.log("Eres mayor de edad")
+}else{
+    console.log("Eres menor de edad")
+}
+
+if(edad < 18){
+    console.log("Eres menor de edad")
+}else{
+    console.log("Eres mayor de edad")
+}
+
+if(edad <= 18){
+    console.log("Eres menor de edad")
+}else{
+    console.log("Eres mayor de edad")
+}
+
+let hora = 5
+if((hora >= 0) && (hora <= 5)){
+    console.log("Déjame Dormir")
+}else if((hora >= 6)&&(hora <=11)){
+    console.log("Buenos días")
+}else if((hora >=12)&&(hora <= 18)){
+    console.log("Buenas tardes")
+}else{
+    console.log("Buenas noches")
+}
+
+
+if(hora < 6){
+    console.log("Déjame Dormir")
+}else if((hora > 5)&&(hora <12)){
+    console.log("Buenos días")
+}else if((hora >11)&&(hora < 19)){
+    console.log("Buenas tardes")
+}else{
+    console.log("Buenas noches")
+}
+
+//operador Ternario (condicion) ? verdadero : falsa
+console.log("Operador Ternario")
+let eresMayor = (edad >= 18)
+    ?"Eres mayor de edad"
+    :"Eres menor de edad"
+console.log(eresMayor)
+
+// switch - case
+let dia = 5
+switch (dia) {
+    case 0:
+        console.log("Domingo")
+        break;
+    case 1:
+        console.log("Lunes")
+        break;
+    case 2:
+        console.log("Martes")
+        break; 
+    case 3:
+        console.log("Miercoles")
+        break; 
+    case 4:
+        console.log("Jueves")
+        break;  
+    case 5:
+        console.log("Viernes")
+        break;
+    case 6:
+        console.log("Sábado")
+        break;
+    default:
+        console.log("Numero de dia fuera de rango")
+        break;
+}
+*/
+
+/*
+let contador = 0
+while (contador < 10) {
+    console.log("while " +contador)
+    contador ++
+}
+
+
+contador = 0
+do {
+    console.log("do while " + contador)
+    contador ++
+}while(contador < 10)
+
+
+for (let i = 0; i < 10; i++) {
+    console.log("for: " + i)
+}
+
+let numeros = [10,20,30,40,50,60,70,80,90]
+for (let i = 0; i < numeros.length; i++) {
+    console.log("For: " + numeros[i])
+    
+}
+
+const sergio = {
+    nombre: "Sergio",
+    apellido: "Gonzalez",
+    edad: 32
+}
+
+//recorre cada propiedad de un objeto
+for (const propiedad in sergio) {
+    console.log(`Key: ${propiedad}, Value: ${sergio[propiedad]}`)
+}
+//recorre cada valor de cada propiedad dentro de un objeto
+for (const elemento of numeros) {
+    console.log(elemento)
+}
+
+
+let cadena = "Hola Mundo"
+
+for (const caracter of cadena) {
+    console.log(caracter)
+}
+*/
+
+
+
+//Manejo de Errores
+/*
+try {
+    console.log("En el Try se agrega el código a evaluar")
+    noExiste
+    console.log("Segundo mensaje en el try")
+} catch (error) {
+    console.log("Catch, captura cualquier error surgido o lanzado en el try")    
+    console.log(error)
+} finally{
+    console.log("El bloque Finally se ejecutará siempre al final de una bloque try-cathc")
+}
+
+
+try {
+    let numero = "h"
+    if(isNaN(numero)){
+        throw new Error("El caractér introducido no es un Número")
+    }
+
+    console.log(numero*numero)
+} catch (error) {
+    console.log(`Se produjo el siguiente error: ${error}`)
+}
+*/
+
+/*
+const numeros = [1,2,3,4,5,6,7,8,9,0]
+
+for (let i = 0; i < numeros.length; i++) {
+    if(i === 5){
+        break
+    }
+    console.log(numeros[i]) 
+}
+
+for (let i = 0; i < numeros.length; i++) {
+    if(i === 5){
+        continue
+    }
+    console.log(numeros[i]) 
+}
+*/
+
+//Destructuración
+/*
+const numeros = [1,2,3]
+
+
+// sin destructuracion
+let uno = numeros[0]
+let dos = numeros[1]
+let tres = numeros[2]
+
+console.log(uno,dos,tres)
+// con destructuracion
+const [one,two,three] = numeros
+
+console.log(one,two,three)
+
+const persona = {
+    nombre: "sergio",
+    apellido: "gonzalez",
+    edad: 32
+}
+
+let {nombre,apellido,edad} = persona
+console.log(nombre,apellido,edad)
+*/
+
+//Objetos literales
+/*
+let nombre = "Zoe"
+edad = 1
+
+// sin objeto literal
+const perro = {
+    nombre: nombre,
+    edad: edad,
+    ladrar: function(){
+        console.log("guauu guauu!!!")
+    }
+}
+
+console.log(perro)
+perro.ladrar()
+
+
+//con objeto literal
+const dog = {
+    nombre,
+    edad,
+    raza:"Callejero",
+    ladrar(){
+        console.log("guauu guauu guauu!!!")
+    }
+}
+
+console.log(dog)
+dog.ladrar()
+*/
+
+// parametros REST
+/*
+function sumar (a,b, ...c){
+    let resultado = a+b
+    c.forEach(function(n){
+        resultado += n
+    })
+    return resultado
+}
+
+console.log(sumar(2,3))
+console.log(sumar(2,3,3))
+console.log(sumar(2,3,1,4))
+console.log(sumar(2,3,3,4,5))
+console.log(sumar(2,3,3,4,5,6))
+console.log(sumar(2,3,3,4,5,6,7))
+
+//Operador spread
+const arr1 = [1,2,3,4,5]
+arr2 = [6,7,8,9,0]
+console.log(arr1,arr2)
+
+
+// sin spread
+const arr3 = [arr1,arr2]
+console.log(arr3)
+// con spread
+const arr4 = [...arr1,...arr2]
+console.log(arr4)
+*/
+
+
+//Arrow Functions
+//funcion expresada, si subo el llamado no funciona
+//por el tema de hositing
+const saludar = function(){
+    console.log(`Hola`)
+}
+saludar()
+
+//arrow functions
+const saludar2 = () => console.log(`Hola`)
+
+saludar2()
+// si toma un parametro no hace falta los parentesis
+const saludar3 = nombre => console.log(`Hola ${nombre}`)
+saludar3("Sergio")
+
+const sumar = function (a,b){
+    return a+b
+}
+console.log(sumar(8,9))
+
+// si lleva una linea de codigo omitimos las llaves
+const sumar2 = (a,b) => a+b
+console.log(sumar2(9,9))
+
+const funcionDeVariasLines = () => {
+    console.log("Uno")
+    console.log("Dos")
+    console.log("Tres")
+}
+
+funcionDeVariasLines()
+
+const numeros = [1,2,3,4,5]
+
+numeros.forEach(function(el,index){
+    console.log(`El elemento ${el} esta en la posición ${index}`)
+})
+
+numeros.forEach((el,index) => console.log(`${el} esta en la posición ${index}`))
+
+function Perro(){
+    console.log(this)
+}
+Perro()
+
+const perro = {
+    nombre: "Zoe",
+    ladrar(){
+        console.log(this)
+    }
+}
+perro.ladrar()
+
+const perro2 = {
+    nombre: "Zoe",
+    ladrar: () => console.log(this)
+}
+perro2.ladrar()
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Prácticos 1 de 10</title>
+</head>
+<body>
+    <h1>Ejercios de Programación en JavaScript</h1>
+    <script>
+    /*
+    12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+    */
+    const primo = (numero = undefined) =>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        if(typeof numero !== "number") return console.error(`El valor "${numero}" no es un numero`)
+        if(numero === 0) return console.error("El número no puede ser 0")
+        if(numero === 1) return console.error("El número no puede ser 1")
+        if(Math.sign(numero) === -1) return console.error("El número no puede ser negativo")
+        
+        let bandera = false
+        for(let i = 2; i < numero; i++){
+            if((numero % i) === 0) {
+                    bandera = true
+                    break
+                }
+        }
+        return (bandera)
+            ?console.log(`No es primo el número ${numero}`)
+            :console.log(`Si es primo el número ${numero}`)
+        
+    }
+    primo()
+    primo("")
+    primo({})
+    primo(-7)
+    primo(0)
+    primo(1)
+    primo(7)
+    primo(200)
+    console.clear()
+    
+
+
+    /*
+13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+*/
+    const parImpar = (numero = undefined)=>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        if(typeof numero !== "number") return console.error(`El valor "${numero}" no es un numero`)
+        
+        return(numero % 2 === 0) 
+            ?console.info(`El número ${numero} es PAR`)
+            :console.info(`El número ${numero} es IMPAR`)
+    }
+
+    parImpar()
+    parImpar("")
+    parImpar([1,2])
+    parImpar(-8)
+    parImpar(1)
+    parImpar(2)
+    parImpar(3)
+    parImpar(4)
+    parImpar(29)
+    console.clear()
+/*
+14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+   */ 
+    const celsiusAFahrenheit = (temperatura = undefined, grados = undefined) =>{
+        if(temperatura === undefined) return console.warn("No pasaste una temperatura")
+        if(typeof temperatura !== "number") return console.error(`El valor "${temperatura}" no es una temperatura valida`)
+        if(grados === undefined) return console.error(`No ingresaste un tipo de grado`)
+        if(typeof grados !== "string") return console.error(`El valor "${grados}" no es un grado valido`)
+        if((grados.length !== 1) || (!/(C|F)/.test(grados))) return console.warn("Valor de unidad no reconocido")
+
+        if(grados === "C"){
+            return console.info(`${temperatura}°C = ${Math.round(temperatura * (9/5)) + 32}°F`)
+        }else if(grados === "F"){
+            return console.info(`${temperatura}°F = ${Math.round((temperatura -32) * (5/9))}°C`)
+        }
+
+    }
+    celsiusAFahrenheit()
+    celsiusAFahrenheit(0)
+    celsiusAFahrenheit(0,5)
+    celsiusAFahrenheit(0,"")
+    celsiusAFahrenheit(0,"hola")
+    celsiusAFahrenheit(100,"C")
+    celsiusAFahrenheit(32,"F")
+    celsiusAFahrenheit(100,"F")
+    console.clear()
+    /*
+    15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.*/
+    const binarioADecimal = (numero = undefined, base = undefined) =>{
+        if(numero === undefined) return console.warn("No ingresaste un número")
+        if(base === undefined) return console.warn("No ingresaste una base")
+        if(typeof numero !== "number" && typeof numero !== "string") return console.error(`El valor "${numero}" no es un número valido`)
+
+        if(typeof base !== "number") return console.error(`El valor "${base}" no es una base valida`)
+        
+        if(base === 2) 
+            return console.info(`El número decimal ${numero} en base ${base} binaria es: ${parseInt(numero,base)} base 10`)
+        else if(base === 10)return console.info(`El número binario ${numero} en base ${base} decimal es: ${(numero.toString(2))} base 2`)
+        else {
+            return console.log("El tipo de base a convertir NO es valido")
+        }
+        
+    }
+    binarioADecimal()
+    binarioADecimal("2")
+    binarioADecimal(100)
+    binarioADecimal(100,"2")
+    binarioADecimal(100,2)
+    binarioADecimal(4,10)
+    binarioADecimal(114,10)
+    binarioADecimal(4,3)
+    console.clear()
+    /*
+16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+*/
+
+    const descuento = (total = undefined, porcentaje = 0) =>{
+        if(total === undefined) return console.warn("No ingresaste un total")
+        if(typeof total !== "number") return console.error(`El valor "${total}" no es una total valido`)
+        if(total === 0) return console.error("El monto no puede ser cero")
+        if(Math.sign(total) === -1) return console.error("El monto no puede ser negativo")
+        if(typeof porcentaje !== "number") return console.error(`El valor "${porcentaje}" no es un porcentaje valido`)
+        if(Math.sign(porcentaje) === -1) return console.error("El descuento no puede ser negativo")
+        
+
+        return console.log(`Del total ${total}, se realizara un ${porcentaje}% de descuento quedando en total: ${(total - (porcentaje*total/100))}`)
+    }
+    descuento()
+    descuento("200")
+    descuento(0)
+    descuento(-44)
+    descuento(1000,"2")
+    descuento(1000, -20)
+    descuento(1000)
+    descuento(1000,25)
+    console.clear()
+
+/*
+17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+ */   
+
+    const cuantosAniosPasaron = (date = undefined) =>{
+        if(date === undefined) return console.warn("No ingresaste una fecha")
+        if(!(date instanceof Date)) return console.error("El valor que ingresaste no es una fecha válida")
+
+        let hoyMenosFecha = new Date().getTime() - date.getTime()
+        let aniosEnMS = 1000 * 60 * 60 * 24 * 365
+        let aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMS)
+
+        return (Math.sign(aniosHumanos) === -1)
+            ?console.info(`Faltan ${Math.abs(aniosHumanos)} añios para el ${date.getFullYear()}.`)
+            :(Math.sign(aniosHumanos) === 1)
+                ?console.info(`Han pasado ${Math.abs(aniosHumanos)} añios desde ${date.getFullYear()}.`)
+                :console.info(`Estamos en el año actual ${date.getFullYear()}`)
+    }
+    cuantosAniosPasaron()
+    cuantosAniosPasaron({})
+    cuantosAniosPasaron(false)
+    cuantosAniosPasaron(new Date())
+    cuantosAniosPasaron(new Date(1984,4,23))
+    cuantosAniosPasaron(new Date(1884,4,23))
+    cuantosAniosPasaron(new Date(2084,4,23))
+    console.clear()
+    
+    /*
+    18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+    */
+    const cuentaVC = (cadena = "") => {
+        if(cadena === "") return console.warn("No ingresaste una cadena")
+        if(typeof cadena !== "string") return console.error("Lo que ingresaste no es un String")
+        let numeroVocales = 0, numeroConsonantes = 0
+        ///[a-z]/i
+        if(cadena.match(/[aeiouáéíóú]/gi))numeroVocales = cadena.match(/[aeiouáéíóú]/gi).length
+        if(cadena.match(/[a-z]/gi)) numeroConsonantes = cadena.replace(/[aeiouáéíóú]/gi, '').match(/[a-z]/gi).length
+        console.info(`Cantidad de Vocales: ${numeroVocales} y cantidad de Consonantes: ${numeroConsonantes}`)
+    }
+    cuentaVC()
+    cuentaVC({})
+    cuentaVC(123)
+    cuentaVC("Hola Mundo")
+    console.clear()
+/*19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.*/
+
+    const validaNombre = (nombre = "") =>{
+        if(nombre === "") return console.warn("No ingresaste una cadena")
+        if(typeof nombre !== "string") return console.error("Lo que ingresaste no es un String")
+        if(nombre.match(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/)) return console.info(`El nombre: ${nombre} es valido`)
+        else return console.info(`El nombre: ${nombre} No es valido`)
+        
+    }
+    validaNombre()
+    validaNombre(123)
+    validaNombre("sergio")
+    validaNombre("Sergio gonzalez")
+    validaNombre("Sergio Gonzalez")
+    console.clear()
+/*20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+    */
+    const validaEmail = (email = "") =>{
+        if(email === "") return console.warn("No ingresaste una cadena para validar")
+        if(typeof email !== "string") return console.error("Lo que ingresaste no es un String")
+        if(email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/)) return console.info(`El email: ${email} es valido`)
+        else return console.info(`El email: ${email} No es valido`)
+    }
+
+    validaEmail()
+    validaEmail(123)
+    validaEmail("")
+    validaEmail("sergio")
+    validaEmail("sergio@")
+    validaEmail("@.com.ar")
+    validaEmail("sergisosysforence@hotmail.com.ar")
+    console.clear()
+    </script>
+    
+</body>
+</html>

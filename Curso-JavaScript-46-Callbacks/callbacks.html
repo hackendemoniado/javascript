@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+</head>
+<body>
+<script>
+    function cuadradaoCallback(value, callback){
+        setTimeout(() => {
+            callback(value, value*value)
+        }, 0 | Math.random() * 1000)
+    }
+
+    cuadradaoCallback(0, (value, result) => {
+        console.log("Inicia Callback")
+        console.log(`Callback: ${value}, ${result}`)
+            cuadradaoCallback(1, (value, result) => {
+            console.log(`Callback: ${value}, ${result}`)
+                cuadradaoCallback(2, (value, result) => {
+                console.log(`Callback: ${value}, ${result}`)
+                    cuadradaoCallback(3, (value, result) => {
+                    console.log(`Callback: ${value}, ${result}`)
+                        cuadradaoCallback(4, (value, result) => {
+                        console.log(`Callback: ${value}, ${result}`)
+                            cuadradaoCallback(5, (value, result) => {
+                            console.log(`Callback: ${value}, ${result}`)
+                                cuadradaoCallback(6, (value, result) => {
+                                console.log(`Callback: ${value}, ${result}`)
+                                    cuadradaoCallback(7, (value, result) => {
+                                    console.log(`Callback: ${value}, ${result}`)
+                                        cuadradaoCallback(8, (value, result) => {
+                                        console.log(`Callback: ${value}, ${result}`)
+                                            cuadradaoCallback(9, (value, result) => {
+                                            console.log(`Callback: ${value}, ${result}`)
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+</script>
+</body>
+</html>

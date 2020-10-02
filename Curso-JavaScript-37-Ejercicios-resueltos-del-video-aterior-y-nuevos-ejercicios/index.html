@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Prácticos 1 de 10</title>
+</head>
+<body>
+    <h1>Ejercios de Programación en JavaScript</h1>
+    <script>
+
+    /*
+    5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+    */
+    const invertirCadena = (cadena = "") =>
+    (!cadena)
+        ?console.warn("No ingresaste una cadena de texto")
+        :console.info(cadena.split("").reverse().join(""));
+    invertirCadena("Hola Mundo")
+    invertirCadena("JavaScript es un lenguaje de programación increíble")
+    invertirCadena()
+
+    console.clear()
+
+/*6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+*/
+
+    const cuentaPalabras = (cadena = "", buscar = "") =>{
+     if (!cadena) return console.warn("No ingresaste nunguna cadena")
+     if(!buscar) return console.warn("No ingresaste ningún separador")
+    
+     let i = 0
+     contador = 0
+     while (i !== -1) {
+         i = cadena.indexOf(buscar,i)
+         if(i !== -1){
+             i++
+             contador++
+         }
+     }
+    return console.info(`El String "${buscar}" aparece en total: ${contador} veces.`)
+    }
+
+
+    cuentaPalabras("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis dolorem repellat officiis natus aliquid illo quasi cupiditate perspiciatis provident! Ratione, laborum magnam magni amet exercitationem explicabo quibusdam voluptates accusantium?", "lorem")
+    cuentaPalabras()
+    cuentaPalabras("", "mundo")
+    cuentaPalabras("Hola mundo")
+    cuentaPalabras("hola mundo adios mundo", "mundo")
+
+    console.clear()
+    
+/*
+7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+*/
+    const palindromo = (cadena = "")=>{
+        if(!cadena) return console.warn("No ingresaste nunguna cadena")
+
+        cadena = cadena.toLocaleLowerCase()
+        let alReves = cadena.split("").reverse().join("")
+
+        return (cadena === alReves)
+            ?console.log(`La cadena "${cadena}" SI es un palindromo, cadena al reves: ${alReves}`)
+            :console.log(`La cadena "${cadena}" NO es un palindromo, cadena al reves: ${alReves}`)
+    }
+
+    palindromo()
+    palindromo("hola Mundo")
+    palindromo("Salas")
+
+    console.clear()
+
+/*
+8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+*/  
+
+    const eliminaCaracteres = (cadena = "", expRegular = "") =>
+    (!cadena)
+        ?console.warn("No ingresaste nunguna cadena")
+        :(!expRegular)
+            ?console.warn("No ingresaste nunguna expresión regular")
+            :console.info(cadena.replace(new RegExp(expRegular, "ig"),""))
+
+    eliminaCaracteres()
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5")
+    eliminaCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+    eliminaCaracteres("Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio consequuntur impedit voluptates doloremque consectetur voluptate quis excepturi ad assumenda, natus odit error, est atque deleniti voluptatum doloribus minima velit amet!", "[a-z]")
+    console.clear()
+
+    /*
+    9) Programa una función que obtenga un numero aleatorio entre 501 y 600.*/
+    const aleatorios = () => console.info(Math.round((Math.random() * 100) + 501))
+    aleatorios()
+    console.clear()
+    /*
+10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+*/
+    const capicua = (numero = 0)=>{
+        if(!numero) return console.warn("No pasaste un número")
+        if(typeof numero !== "number") return console.error(`El valor "${numero}" no es un numero`)
+
+        numero = numero.toString()
+        let alReves = numero.split("").reverse().join("")
+        return(alReves === numero)
+            ?console.log(`Sí es capicúa, Original ${numero}, al reves ${alReves}`)
+            :console.log(`No es capicúa, Original ${numero}, al reves ${alReves}`)
+    }
+
+    capicua()
+    capicua("qwpoei")
+    capicua({})
+    capicua(2000)
+    capicua(2002)
+    capicua(18.99)
+    capicua(212.212)
+    console.clear()
+/*
+11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+*/    
+    const factorial = (numero = undefined) =>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        if(typeof numero !== "number") return console.error(`El valor "${numero}" no es un numero`)
+        if(numero === 0) return console.error("El número no puede ser 0")
+        if(Math.sign(numero) === -1) return console.error("El número no puede ser negativo")
+
+        let total = 1
+        for (let i = numero; i > 1; i--) total *= i
+
+        return console.log(`El factorial de ${numero} es ${total}`)
+    }
+
+    factorial()
+    factorial(0)
+    factorial(-3)
+    factorial("3")
+    factorial([1,2,3])
+    factorial(5)
+    factorial(8)
+    console.clear()
+
+
+    /*
+    12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+    */
+    const primo = (numero = undefined) =>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        if(typeof numero !== "number") return console.error(`El valor "${numero}" no es un numero`)
+        if(numero === 0) return console.error("El número no puede ser 0")
+        if(Math.sign(numero) === -1) return console.error("El número no puede ser negativo")
+        let bandera = true
+        if(numero % 1 === 0 && numero % numero === 0){
+            for (let i = 2; i < numero; i++) {
+                if(numero % i === 0) {
+                    bandera = false
+                    break
+                }            
+            }
+        }else bandera = false
+
+        if(bandera === true) return console.log(`Si es primo el número ${numero}`)
+        else return console.log(`No es primo el número ${numero}`)
+    }
+    primo()
+    primo("")
+    primo({})
+    primo(-7)
+    primo(1)
+    primo(2)
+    primo(3)
+    primo(4)
+    primo(5)
+    primo(6)
+    primo(7)
+    console.clear()
+
+
+    /*
+13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+*/
+    const parImpar = (numero = undefined)=>{
+        if(numero === undefined) return console.warn("No pasaste un número")
+        if(typeof numero !== "number") return console.error(`El valor "${numero}" no es un numero`)
+        if(numero === 0) return console.error("El número no puede ser 0")
+        if(Math.sign(numero) === -1) return console.error("El número no puede ser negativo")
+
+        if(numero % 2 === 0) return console.info(`El número ${numero} es PAR`)
+        else return console.log(`El número ${numero} es IMPAR`)
+    }
+
+    parImpar()
+    parImpar("")
+    parImpar([1,2])
+    parImpar(-8)
+    parImpar(1)
+    parImpar(2)
+    parImpar(3)
+    parImpar(4)
+    parImpar(29)
+    console.clear()
+/*
+14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+    */
+    const celsiusAFahrenheit = (temperatura = undefined, grados = "") =>{
+        if(temperatura === undefined) return console.warn("No pasaste una temperatura")
+        if(typeof temperatura !== "number") return console.error(`El valor "${temperatura}" no es una temperatura valida`)
+        if(typeof grados !== "string") return console.error(`El valor "${grados}" no es un grado valido`)
+        if(!grados) return console.warn("No ingresaste nungun tipo de grado")
+
+        if(grados.toLocaleUpperCase() === "C")return console.log(`La temperatura en Fahrenheit de ${temperatura} es: ${((temperatura*(9/5))+32).toFixed(2)}°F.`)
+        else if(grados.toLocaleUpperCase() === "F") return console.log(`La temperatura en Celsius de ${temperatura} es: ${((temperatura-32) * (5/9)).toFixed(2)}°C.`)
+
+    }
+    celsiusAFahrenheit()
+    celsiusAFahrenheit(0)
+    celsiusAFahrenheit(0,5)
+    celsiusAFahrenheit(0,"")
+    celsiusAFahrenheit(0,"C")
+    celsiusAFahrenheit(5.5,"c")
+    celsiusAFahrenheit(5.5,"f")
+    </script>
+    
+</body>
+</html>
